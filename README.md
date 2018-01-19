@@ -1,6 +1,6 @@
 # Analytics Bundle for eZ Platform 2
 
-The Analytics Bundle for eZ Platform 2 provides a basic interface for Google Analytics in the admin.
+The Analytics Bundle for eZ Platform 2 provides a basic interface for Google Analytics in the admin. The bundle uses the Google Embed API (See https://ga-dev-tools.appspot.com/embed-api/).
 
 ## Installation
 
