@@ -1,0 +1,5 @@
+parameters:
+    # Client ID from Google. Goto Google developer console and get/create a Service account client
+    analytics.clientid: 935716366386-10tl3cfd1bjajkv8fc1hisc843j0i8j7.apps.googleusercontent.com
+    analytics.region_names: [ 'Stavanger', 'Bergen', 'Haugesund', 'Lister', 'Østre Agder', 'Grenland', 'Hardanger', 'Elverum' ]
+    analytics.region_filters: [ 'Stavanger', 'Bergen', 'Haugesund', 'Lister', 'OEstre-Agder', 'Grenland', 'Hardanger', 'Elverum' ]

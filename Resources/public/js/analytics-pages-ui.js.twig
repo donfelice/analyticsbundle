@@ -1,0 +1,48 @@
+gapi.analytics.ready(function() {
+
+
+
+    /**
+     * Authorize the user immediately if the user has already granted access.
+     * If no access has been created, render an authorize button inside the
+     * element with the ID "embed-api-auth-container".
+     *
+     */
+
+     //var $ = require('jquery');
+
+//$(document).ready(function() {
+    var clientid = $('.card-body').data('analytics-clientid');
+//});
+
+    console.log( "testing var from yml" );
+    //var test = "{{ analytics_clientid }}";
+    console.log( clientid );
+
+    gapi.analytics.auth.authorize({
+      container: 'embed-api-auth-container',
+      //clientid: '935716366386-10tl3cfd1bjajkv8fc1hisc843j0i8j7.apps.googleusercontent.com'
+      clientid: clientid
+    });
+
+    var timeline = new gapi.analytics.googleCharts.DataChart({
+      reportType: 'ga',
+      query: {
+        'dimensions': 'ga:pagePath',
+        'metrics': 'ga:pageviews,ga:uniquePageviews,ga:timeOnPage', //,ga:bounces,ga:entrances,ga:exits
+        'start-date': '30daysAgo',
+        'end-date': 'yesterday',
+        'sort': '-ga:pageviews',
+        'filters': 'ga:pagePath=@Grenland',
+        'ids': "ga:72422897"
+      },
+      chart: {
+        type: 'TABLE',
+        container: 'timeline'
+      }
+    });
+
+    timeline.execute();
+
+
+});

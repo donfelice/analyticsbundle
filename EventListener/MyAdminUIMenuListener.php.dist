@@ -1,0 +1,53 @@
+<?php
+
+//declare(strict_types=1);
+namespace Donfelice\AnalyticsBundle\EventListener;
+
+use EzSystems\EzPlatformAdminUi\Menu\Event\ConfigureMenuEvent;
+use EzSystems\EzPlatformAdminUi\Menu\MainMenuBuilder;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+/**
+ * Menu class extending Admin UI's KNPMenu based menu system.
+ */
+
+class MyAdminUIMenuListener implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents() : array
+    {
+        return [
+            ConfigureMenuEvent::MAIN_MENU => 'onMenuConfigure',
+        ];
+    }
+    public function onMenuConfigure(ConfigureMenuEvent $event) : void
+    {
+        $menu = $event->getMenu();
+
+        // Add own top level section
+        $menu->addChild(
+            'analytics_menu',
+            ['label' => 'Analytics']
+        );
+
+        $menu['analytics_menu']->addChild(
+            'analytics_menu_dashboard',
+            [
+                // Example of trnslating menu items
+                //'label' => 'translation.key',
+                //'translation_domain' => 'messages',
+                'label' => 'Dashboard',
+                'uri' => '/admin/analytics/dashboard',
+            ]
+        );
+
+        $menu['analytics_menu']->addChild(
+            'analytics_menu_pages',
+            [
+                'label' => 'Pages',
+                'uri' => '/admin/analytics/pages',
+            ]
+        );
+
+    }
+
+}

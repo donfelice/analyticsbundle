@@ -1,0 +1,19 @@
+donfelice_analytics_homepage:
+    path:     /
+    defaults: { _controller: DonfeliceAnalyticsBundle:Default:index }
+
+donfelice_analytics_dashboard:
+    path:     /analytics/dashboard
+    defaults: { _controller: DonfeliceAnalyticsBundle:Default:dashboard }
+
+donfelice_analytics_pages:
+    path:     /analytics/pages
+    defaults: { _controller: DonfeliceAnalyticsBundle:Default:pages }
+
+donfelice_analytics_regions:
+    path:     /analytics/regions
+    defaults: { _controller: DonfeliceAnalyticsBundle:Default:regions }
+
+donfelice_analytics_region:
+    path:     /analytics/region/{region}
+    defaults: { _controller: DonfeliceAnalyticsBundle:Default:region, region: '' }
